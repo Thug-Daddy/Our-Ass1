@@ -21,18 +21,18 @@ public class SimpleTree<E> implements Tree<E> {
 	
 	//constructor
 	public SimpleTree() {
-		this.root = null;
+		this.setRoot(null);
 	}
 	
 	//returns the number of positions in the tree
 	@Override
 	public int size() {
 		//handle edge case: empty tree
-		if(root == null) {
+		if(getRoot() == null) {
 			return 0;
 		}
 		//otherwise return the size of the subtree rooted at the root
-		return size(root);
+		return size(getRoot());
 	}
 	
 	//return the size of the subtree rooted at position
@@ -49,12 +49,12 @@ public class SimpleTree<E> implements Tree<E> {
 	@Override
 	public boolean isEmpty() {
 		//the tree is empty if and only if the root is null
-		return root == null;
+		return getRoot() == null;
 	}
 
 	@Override
 	public Position<E> root() {
-		return root;
+		return getRoot();
 	}
 
 	@Override
@@ -95,8 +95,8 @@ public class SimpleTree<E> implements Tree<E> {
 		//}
 		
 		//handle edge case: removing the root
-		if(position.equals(root)) {
-			root = null;
+		if(position.equals(getRoot())) {
+			setRoot(null);
 		}
 		
 		//if the position has a parent, remove it from the parent
@@ -105,5 +105,9 @@ public class SimpleTree<E> implements Tree<E> {
 			parent.removeChild(position);
 			position.setParent(null);
 		}
+	}
+
+	public Position<E> getRoot() {
+		return root;
 	}
 }
