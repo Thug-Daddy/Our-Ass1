@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import interfaces.Position;
 import interfaces.Tree;
 import interfaces.TreeArithmetic;
 import interfaces.TreeProperties;
@@ -134,15 +135,21 @@ TreeTraversals<E>, // PART 1
 	@Override
 	public List<E> preOrder() {
 
-		List<E> preOrder = new ArrayList<>();
-		preOrder.add((E) root());
-		MyTree<E> temp = new MyTree<E>();
-
-		for (int i = 0; i < super.numChildren(root()); i++) {
-			temp = (MyTree<E>) super.children(root()).get(i);
-			preOrder.addAll(temp.preOrder());
+		if (super.root() == null) {
+			return null;
 		}
-		return preOrder();
+
+		else {
+			List<E> preOrder = new ArrayList<>();
+			preOrder.add(super.root().getElement());
+			MyTree<E> temp = new MyTree<E>();
+
+			for (int i = 0; i < super.numChildren(super.root()); i++) {
+				temp = (MyTree<E>) super.children(super.root()).get(i);
+				preOrder.addAll(temp.preOrder());
+			}
+			return preOrder();
+		}
 
 	}
 
@@ -150,7 +157,9 @@ TreeTraversals<E>, // PART 1
 	public List<E> inOrder() {
 
 		List<E> inOrder = new ArrayList<>();
-		MyTree<E> temp = (MyTree<E>) root();
+		Position<E> root = super.root();
+		MyTree<E> temp = new MyTree<E>();
+		temp.setRoot(root);
 		inOrder = temp.preOrder();
 		Collections.sort(inOrder);
 		return inOrder;
@@ -161,20 +170,26 @@ TreeTraversals<E>, // PART 1
 	public List<E> postOrder() {
 
 		List<E> postOrder = new ArrayList<>();
+
+		if (super.isEmpty()) {
+			return postOrder;
+		}
+
 		MyTree<E> temp = new MyTree<E>();
 
-		if (super.numChildren(root()) == 0) {
+		if (super.numChildren(super.root()) == 0) {
 
-			postOrder.add((E) root());
+			postOrder.add(super.root().getElement());
 			return postOrder;
 
 		}
 
 		else {
 
-			for (int i = 0; i < super.numChildren(root()); i++) {
+			for (int i = 0; i < super.numChildren(super.root()); i++) {
 
-				temp = (MyTree<E>) super.children(root()).get(i);
+				Position<E> child = super.children(super.root()).get(i);
+				temp.setRoot(child);
 				postOrder.addAll(temp.postOrder());
 			}
 
