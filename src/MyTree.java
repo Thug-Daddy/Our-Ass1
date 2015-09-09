@@ -145,7 +145,8 @@ TreeTraversals<E>, // PART 1
 			MyTree<E> temp = new MyTree<E>();
 
 			for (int i = 0; i < super.numChildren(super.root()); i++) {
-				temp = (MyTree<E>) super.children(super.root()).get(i);
+				Position<E> child = super.children(super.root()).get(i);
+				temp.setRoot(child);
 				preOrder.addAll(temp.preOrder());
 			}
 			return preOrder();
