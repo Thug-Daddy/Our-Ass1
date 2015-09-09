@@ -40,4 +40,110 @@ public class MyTreeUnimplemented<E extends Comparable<E>> extends SimpleTree<E> 
 		// d) If the position is in both trees, then compare the values (return if the difference is not 0)
 		return 0;
 	}
+
+	@Override
+	public boolean isArithmetic() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public double evaluateArithmetic() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getArithmeticString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int height() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int height(int maxDepth) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int numLeaves() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int numLeaves(int depth) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int numPositions(int depth) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean isBinary() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isProperBinary() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isCompleteBinary() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isBalancedBinary() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isHeap(boolean min) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isBinarySearchTree() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<E> preOrder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<E> postOrder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<E> inOrder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+	
 }
