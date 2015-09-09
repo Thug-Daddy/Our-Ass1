@@ -18,8 +18,9 @@ import simpletree.SimpleTree;
  *         Implement as many of the required methods as you can.
  */
 
-public class MyTree<E extends Comparable<E>> extends SimpleTree<E>implements TreeTraversals<E>, // PART
-																								// 1
+public class MyTree<E extends Comparable<E>> extends SimpleTree<E>implements
+
+TreeTraversals<E>, // PART 1
 		TreeProperties, // PART 2
 		Comparable<Tree<E>>, // PART 3 (only if enrolled in INFO1105)
 		TreeArithmetic // PART 4
@@ -134,11 +135,11 @@ public class MyTree<E extends Comparable<E>> extends SimpleTree<E>implements Tre
 	public List<E> preOrder() {
 
 		List<E> preOrder = new ArrayList<>();
-		preOrder.add((E) getRoot());
+		preOrder.add((E) root());
 		MyTree<E> temp = new MyTree<E>();
 
-		for (int i = 0; i < super.numChildren(getRoot()); i++) {
-			temp = (MyTree<E>) super.children(getRoot()).get(i);
+		for (int i = 0; i < super.numChildren(root()); i++) {
+			temp = (MyTree<E>) super.children(root()).get(i);
 			preOrder.addAll(temp.preOrder());
 		}
 		return preOrder();
@@ -149,7 +150,7 @@ public class MyTree<E extends Comparable<E>> extends SimpleTree<E>implements Tre
 	public List<E> inOrder() {
 
 		List<E> inOrder = new ArrayList<>();
-		MyTree<E> temp = (MyTree<E>) getRoot();
+		MyTree<E> temp = (MyTree<E>) root();
 		inOrder = temp.preOrder();
 		Collections.sort(inOrder);
 		return inOrder;
@@ -162,18 +163,18 @@ public class MyTree<E extends Comparable<E>> extends SimpleTree<E>implements Tre
 		List<E> postOrder = new ArrayList<>();
 		MyTree<E> temp = new MyTree<E>();
 
-		if (super.numChildren(getRoot()) == 0) {
+		if (super.numChildren(root()) == 0) {
 
-			postOrder.add((E) getRoot());
+			postOrder.add((E) root());
 			return postOrder;
 
 		}
 
 		else {
 
-			for (int i = 0; i < super.numChildren(getRoot()); i++) {
+			for (int i = 0; i < super.numChildren(root()); i++) {
 
-				temp = (MyTree<E>) super.children(getRoot()).get(i);
+				temp = (MyTree<E>) super.children(root()).get(i);
 				postOrder.addAll(temp.postOrder());
 			}
 
